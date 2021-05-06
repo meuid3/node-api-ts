@@ -3,10 +3,10 @@ import UsuarioBO from '../business/UsuarioBO';
 
 class UsuarioController {
 
-  public criarUsuario( request: Request, response : Response ) {
+  public async criarUsuario( request: Request, response : Response ) {
     const usuarioBO = new UsuarioBO();
-    const user = request.body;
-    return response.json(user);
+    const create =  await usuarioBO.criarUsuario(request.body);
+    return response.json(create);
   }
 
   public async findAll( request: Request, response: Response) {
