@@ -1,5 +1,6 @@
 import express from 'express';
 import routes from './routes';
+import Environment from './config/Environment';
 
 class Server {
 
@@ -7,7 +8,7 @@ class Server {
 
   constructor() {
     this.express = express();
-    this.express.listen(3333);
+    this.express.listen(Environment.port);
     this.express.use(express.json());
     this.routes();
   }
