@@ -14,8 +14,16 @@ class UsuarioBO {
     return await usuario.findAll();
   }
 
-  public async criarUsuario(usuario: UsuarioInterface) {
-    return await this.usuario.criarUsuario(usuario);
+  public async create(usuario: UsuarioInterface) {
+    return await this.usuario.create(usuario);
+  }
+
+  public async update(usuario: UsuarioInterface, idUsuario?: any) {
+    if(idUsuario)
+      usuario.id = idUsuario;
+
+    const update = await this.usuario.update(usuario);
+    return update; 
   }
 }
 export default UsuarioBO;
